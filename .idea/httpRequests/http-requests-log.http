@@ -1,40 +1,411 @@
-POST http://localhost:8888/people/4
-Accept: */*
-Cache-Control: no-cache
+POST http://localhost:8888/login?=
+Authorization: BEARER ZXlKaGJHY2lPaUpJVXpJMU5pSXNJblI1Y0NJNklrcFhWQ0o5LmV5SmxlSEJwY21Weklqb3hOVEkwTWpFM05UTTVMQ0pwWVhRaU9qRTFNalF5TVRNNU16bDkuRHpXTEVMRU5rZ3UzamRWeVVjbEp1ZXVHTHdkLTJOeWFRbElhdUpPRGxndw
 
-{ "id": "4", "firstname":"li", "lastname": "shimin", "Address": { "Province": "shanxi", "City": "yanquan", "county": "lis" } }
+{"username":"admin888","password":"secret"}
 
-<> 2018-04-19T111831.200.txt
-
-###
-
-DELETE http://localhost:8888/people/4
-Accept: */*
-Cache-Control: no-cache
-
-{ "id": "4", "firstname":"li", "lastname": "shimin", "Address": { "Province": "shanxi", "City": "yanquan", "county": "lis" } }
-
-<> 2018-04-19T111752.200.txt
+<> 2018-04-20T060531.200.txt
 
 ###
 
-POST http://localhost:8888/people/4
-Accept: */*
-Cache-Control: no-cache
+POST http://localhost:8888/login?=
+Authorization: BEARER ZXlKaGJHY2lPaUpJVXpJMU5pSXNJblI1Y0NJNklrcFhWQ0o5LmV5SmxlSEJwY21Weklqb3hOVEkwTWpFM05UTTVMQ0pwWVhRaU9qRTFNalF5TVRNNU16bDkuRHpXTEVMRU5rZ3UzamRWeVVjbEp1ZXVHTHdkLTJOeWFRbElhdUpPRGxndw
 
-{ "id": "4", "firstname":"li", "lastname": "shimin", "Address": { "Province": "shanxi", "City": "yanquan", "county": "lis" } }
+{"username":"admin888","password":"secret"}
 
-<> 2018-04-19T111718.200.txt
+<> 2018-04-20T060526.200.txt
 
 ###
 
-POST http://localhost:8888/people/3
-Accept: */*
-Cache-Control: no-cache
+GET http://localhost:8888/login?=
+Authorization: BEARER ZXlKaGJHY2lPaUpJVXpJMU5pSXNJblI1Y0NJNklrcFhWQ0o5LmV5SmxlSEJwY21Weklqb3hOVEkwTWpFM05UTTVMQ0pwWVhRaU9qRTFNalF5TVRNNU16bDkuRHpXTEVMRU5rZ3UzamRWeVVjbEp1ZXVHTHdkLTJOeWFRbElhdUpPRGxndw
 
-{ "id": "3", "firstname":"zhuge", "lastname": "liang", "Address": { "Province": "shandongs", "City": "liao", "county": "don" } }
+{"username":"admin888","password":"secret"}
 
-<> 2018-04-19T111525.200.txt
+###
+
+GET http://localhost:8888/resource?=
+Authorization: BEARER ZXlKaGJHY2lPaUpJVXpJMU5pSXNJblI1Y0NJNklrcFhWQ0o5LmV5SmxlSEJwY21Weklqb3hOVEkwTWpFM05UTTVMQ0pwWVhRaU9qRTFNalF5TVRNNU16bDkuRHpXTEVMRU5rZ3UzamRWeVVjbEp1ZXVHTHdkLTJOeWFRbElhdUpPRGxndw
+
+{"username":"admin888","password":"secret"}
+
+###
+
+GET http://localhost:8888/resource?=
+Authorization: BEARER ZXlKaGJHY2lPaUpJVXpJMU5pSXNJblI1Y0NJNklrcFhWQ0o5LmV5SmxlSEJwY21Weklqb3hOVEkwTWpFM05UTTVMQ0pwWVhRaU9qRTFNalF5TVRNNU16bDkuRHpXTEVMRU5rZ3UzamRWeVVjbEp1ZXVHTHdkLTJOeWFRbElhdUpPRGxndw
+
+{"username":"admin888","password":"secret"}
+
+###
+
+GET http://localhost:8888/resource?=
+Authorization: BEARER ZXlKaGJHY2lPaUpJVXpJMU5pSXNJblI1Y0NJNklrcFhWQ0o5LmV5SmxlSEJwY21Weklqb3hOVEkwTWpFM05UTTVMQ0pwWVhRaU9qRTFNalF5TVRNNU16bDkuRHpXTEVMRU5rZ3UzamRWeVVjbEp1ZXVHTHdkLTJOeWFRbElhdUpPRGxndw==
+
+{"username":"admin888","password":"secret"}
+
+###
+
+GET http://localhost:8888/resource?=
+Authorization: ZXlKaGJHY2lPaUpJVXpJMU5pSXNJblI1Y0NJNklrcFhWQ0o5LmV5SmxlSEJwY21Weklqb3hOVEkwTWpFM05UTTVMQ0pwWVhRaU9qRTFNalF5TVRNNU16bDkuRHpXTEVMRU5rZ3UzamRWeVVjbEp1ZXVHTHdkLTJOeWFRbElhdUpPRGxndw
+
+{"username":"admin888","password":"secret"}
+
+###
+
+GET http://localhost:8888/resource?=
+Authorization: "ZXlKaGJHY2lPaUpJVXpJMU5pSXNJblI1Y0NJNklrcFhWQ0o5LmV5SmxlSEJwY21Weklqb3hOVEkwTWpFM05UTTVMQ0pwWVhRaU9qRTFNalF5TVRNNU16bDkuRHpXTEVMRU5rZ3UzamRWeVVjbEp1ZXVHTHdkLTJOeWFRbElhdUpPRGxndw"
+
+{"username":"admin888","password":"secret"}
+
+###
+
+GET http://localhost:8888/resource?=
+Authorization: "ZXlKaGJHY2lPaUpJVXpJMU5pSXNJblI1Y0NJNklrcFhWQ0o5LmV5SmxlSEJwY21Weklqb3hOVEkwTWpFM05UTTVMQ0pwWVhRaU9qRTFNalF5TVRNNU16bDkuRHpXTEVMRU5rZ3UzamRWeVVjbEp1ZXVHTHdkLTJOeWFRbElhdUpPRGxndw"
+
+{"username":"admin888","password":"secret"}
+
+###
+
+GET http://localhost:8888/resource?=
+Authorization: "ZXlKaGJHY2lPaUpJVXpJMU5pSXNJblI1Y0NJNklrcFhWQ0o5LmV5SmxlSEJwY21Weklqb3hOVEkwTWpFM05UTTVMQ0pwWVhRaU9qRTFNalF5TVRNNU16bDkuRHpXTEVMRU5rZ3UzamRWeVVjbEp1ZXVHTHdkLTJOeWFRbElhdUpPRGxndw=="
+
+{"username":"admin888","password":"secret"}
+
+###
+
+GET http://localhost:8888/resource?=
+Authorization: "ZXlKaGJHY2lPaUpJVXpJMU5pSXNJblI1Y0NJNklrcFhWQ0o5LmV5SmxlSEJwY21Weklqb3hOVEkwTWpFM05UTTVMQ0pwWVhRaU9qRTFNalF5TVRNNU16bDkuRHpXTEVMRU5rZ3UzamRWeVVjbEp1ZXVHTHdkLTJOeWFRbElhdUpPRGxndw=="
+
+{"username":"admin888","password":"secret"}
+
+###
+
+GET http://localhost:8888/resource?=
+Authorization: "ZXlKaGJHY2lPaUpJVXpJMU5pSXNJblI1Y0NJNklrcFhWQ0o5LmV5SmxlSEJwY21Weklqb3hOVEkwTWpFM05UTTVMQ0pwWVhRaU9qRTFNalF5TVRNNU16bDkuRHpXTEVMRU5rZ3UzamRWeVVjbEp1ZXVHTHdkLTJOeWFRbElhdUpPRGxndw=="
+
+{"username":"admin888","password":"secret"}
+
+###
+
+POST http://localhost:8888/resource?=
+Authorization: "ZXlKaGJHY2lPaUpJVXpJMU5pSXNJblI1Y0NJNklrcFhWQ0o5LmV5SmxlSEJwY21Weklqb3hOVEkwTWpFM05UTTVMQ0pwWVhRaU9qRTFNalF5TVRNNU16bDkuRHpXTEVMRU5rZ3UzamRWeVVjbEp1ZXVHTHdkLTJOeWFRbElhdUpPRGxndw=="
+
+{"username":"admin888","password":"secret"}
+
+###
+
+GET http://localhost:8888/resource?=
+Authorization: "ZXlKaGJHY2lPaUpJVXpJMU5pSXNJblI1Y0NJNklrcFhWQ0o5LmV5SmxlSEJwY21Weklqb3hOVEkwTWpFM05UTTVMQ0pwWVhRaU9qRTFNalF5TVRNNU16bDkuRHpXTEVMRU5rZ3UzamRWeVVjbEp1ZXVHTHdkLTJOeWFRbElhdUpPRGxndw=="
+
+{"username":"admin888","password":"secret"}
+
+###
+
+GET http://localhost:8888/resource?=
+Authorization: "ZXlKaGJHY2lPaUpJVXpJMU5pSXNJblI1Y0NJNklrcFhWQ0o5LmV5SmxlSEJwY21Weklqb3hOVEkwTWpFM05UTTVMQ0pwWVhRaU9qRTFNalF5TVRNNU16bDkuRHpXTEVMRU5rZ3UzamRWeVVjbEp1ZXVHTHdkLTJOeWFRbElhdUpPRGxndw=="
+
+{"username":"admin888","password":"secret"}
+
+###
+
+GET http://localhost:8888/resource?=
+Authorization: "ZXlKaGJHY2lPaUpJVXpJMU5pSXNJblI1Y0NJNklrcFhWQ0o5LmV5SmxlSEJwY21Weklqb3hOVEkwTWpFM05UTTVMQ0pwWVhRaU9qRTFNalF5TVRNNU16bDkuRHpXTEVMRU5rZ3UzamRWeVVjbEp1ZXVHTHdkLTJOeWFRbElhdUpPRGxndw=="
+
+{"username":"admin888","password":"secret"}
+
+<> 2018-04-20T050406.401.txt
+
+###
+
+GET http://localhost:8888/resource?=
+Authorization: "ZXlKaGJHY2lPaUpJVXpJMU5pSXNJblI1Y0NJNklrcFhWQ0o5LmV5SmxlSEJwY21Weklqb3hOVEkwTWpFM05UTTVMQ0pwWVhRaU9qRTFNalF5TVRNNU16bDkuRHpXTEVMRU5rZ3UzamRWeVVjbEp1ZXVHTHdkLTJOeWFRbElhdUpPRGxndw=="
+
+{"username":"admin888","password":"secret"}
+
+<> 2018-04-20T050403.401.txt
+
+###
+
+GET http://localhost:8888/resource?=
+Authorization: "ZXlKaGJHY2lPaUpJVXpJMU5pSXNJblI1Y0NJNklrcFhWQ0o5LmV5SmxlSEJwY21Weklqb3hOVEkwTWpFM05UTTVMQ0pwWVhRaU9qRTFNalF5TVRNNU16bDkuRHpXTEVMRU5rZ3UzamRWeVVjbEp1ZXVHTHdkLTJOeWFRbElhdUpPRGxndw=="
+
+{"username":"admin888","password":"secret"}
+
+<> 2018-04-20T050240.401.txt
+
+###
+
+GET http://localhost:8888/resource?=
+Authorization: "ZXlKaGJHY2lPaUpJVXpJMU5pSXNJblI1Y0NJNklrcFhWQ0o5LmV5SmxlSEJwY21Weklqb3hOVEkwTWpFM05UTTVMQ0pwWVhRaU9qRTFNalF5TVRNNU16bDkuRHpXTEVMRU5rZ3UzamRWeVVjbEp1ZXVHTHdkLTJOeWFRbElhdUpPRGxndw=="
+
+{"username":"admin888","password":"secret"}
+
+<> 2018-04-20T050233.404.txt
+
+###
+
+GET http://localhost:8888/resource?=
+Authorization: "ZXlKaGJHY2lPaUpJVXpJMU5pSXNJblI1Y0NJNklrcFhWQ0o5LmV5SmxlSEJwY21Weklqb3hOVEkwTWpFM05UTTVMQ0pwWVhRaU9qRTFNalF5TVRNNU16bDkuRHpXTEVMRU5rZ3UzamRWeVVjbEp1ZXVHTHdkLTJOeWFRbElhdUpPRGxndw=="
+
+{"username":"admin888","password":"secret"}
+
+<> 2018-04-20T050207.404.txt
+
+###
+
+GET http://localhost:8888/resource?=
+Authorization: "ZXlKaGJHY2lPaUpJVXpJMU5pSXNJblI1Y0NJNklrcFhWQ0o5LmV5SmxlSEJwY21Weklqb3hOVEkwTWpFM05UTTVMQ0pwWVhRaU9qRTFNalF5TVRNNU16bDkuRHpXTEVMRU5rZ3UzamRWeVVjbEp1ZXVHTHdkLTJOeWFRbElhdUpPRGxndw=="
+
+{"username":"admin888","password":"secret"}
+
+<> 2018-04-20T050204.404.txt
+
+###
+
+GET http://localhost:8888/resource?=
+Authorization: ZXlKaGJHY2lPaUpJVXpJMU5pSXNJblI1Y0NJNklrcFhWQ0o5LmV5SmxlSEJwY21Weklqb3hOVEkwTWpFM05UTTVMQ0pwWVhRaU9qRTFNalF5TVRNNU16bDkuRHpXTEVMRU5rZ3UzamRWeVVjbEp1ZXVHTHdkLTJOeWFRbElhdUpPRGxndw==
+
+{"username":"admin888","password":"secret"}
+
+<> 2018-04-20T050148.404.txt
+
+###
+
+GET http://localhost:8888/resource?=
+Authorization: ZXlKaGJHY2lPaUpJVXpJMU5pSXNJblI1Y0NJNklrcFhWQ0o5LmV5SmxlSEJwY21Weklqb3hOVEkwTWpFM05UTTVMQ0pwWVhRaU9qRTFNalF5TVRNNU16bDkuRHpXTEVMRU5rZ3UzamRWeVVjbEp1ZXVHTHdkLTJOeWFRbElhdUpPRGxndw==
+
+{"username":"admin888","password":"secret"}
+
+<> 2018-04-20T050138.404.txt
+
+###
+
+GET http://localhost:8888/resource?=
+Authorization: ZXlKaGJHY2lPaUpJVXpJMU5pSXNJblI1Y0NJNklrcFhWQ0o5LmV5SmxlSEJwY21Weklqb3hOVEkwTWpFM05UTTVMQ0pwWVhRaU9qRTFNalF5TVRNNU16bDkuRHpXTEVMRU5rZ3UzamRWeVVjbEp1ZXVHTHdkLTJOeWFRbElhdUpPRGxndw==
+
+{"username":"admin888","password":"secret"}
+
+<> 2018-04-20T050135.404.txt
+
+###
+
+GET http://localhost:8888/resource?=
+Authorization: ZXlKaGJHY2lPaUpJVXpJMU5pSXNJblI1Y0NJNklrcFhWQ0o5LmV5SmxlSEJwY21Weklqb3hOVEkwTWpFM05UTTVMQ0pwWVhRaU9qRTFNalF5TVRNNU16bDkuRHpXTEVMRU5rZ3UzamRWeVVjbEp1ZXVHTHdkLTJOeWFRbElhdUpPRGxndw==
+
+{"username":"admin888","password":"secret"}
+
+<> 2018-04-20T045938.401.txt
+
+###
+
+GET http://localhost:8888/resource?=
+Authorization: ZXlKaGJHY2lPaUpJVXpJMU5pSXNJblI1Y0NJNklrcFhWQ0o5LmV5SmxlSEJwY21Weklqb3hOVEkwTWpFM05UTTVMQ0pwWVhRaU9qRTFNalF5TVRNNU16bDkuRHpXTEVMRU5rZ3UzamRWeVVjbEp1ZXVHTHdkLTJOeWFRbElhdUpPRGxndw==
+
+{"username":"admin888","password":"secret"}
+
+<> 2018-04-20T045936.401.txt
+
+###
+
+GET http://localhost:8888/resource?=
+Authorization: ZXlKaGJHY2lPaUpJVXpJMU5pSXNJblI1Y0NJNklrcFhWQ0o5LmV5SmxlSEJwY21Weklqb3hOVEkwTWpFM05UTTVMQ0pwWVhRaU9qRTFNalF5TVRNNU16bDkuRHpXTEVMRU5rZ3UzamRWeVVjbEp1ZXVHTHdkLTJOeWFRbElhdUpPRGxndw==
+
+{"username":"admin888","password":"secret"}
+
+<> 2018-04-20T045314.401.txt
+
+###
+
+GET http://localhost:8888/resource?=
+Authorization: ZXlKaGJHY2lPaUpJVXpJMU5pSXNJblI1Y0NJNklrcFhWQ0o5LmV5SmxlSEJwY21Weklqb3hOVEkwTWpFM05UTTVMQ0pwWVhRaU9qRTFNalF5TVRNNU16bDkuRHpXTEVMRU5rZ3UzamRWeVVjbEp1ZXVHTHdkLTJOeWFRbElhdUpPRGxndw==
+
+{"username":"admin888","password":"secret"}
+
+<> 2018-04-20T045311.401.txt
+
+###
+
+POST http://localhost:8888/resource?=
+Authorization: ZXlKaGJHY2lPaUpJVXpJMU5pSXNJblI1Y0NJNklrcFhWQ0o5LmV5SmxlSEJwY21Weklqb3hOVEkwTWpFM05UTTVMQ0pwWVhRaU9qRTFNalF5TVRNNU16bDkuRHpXTEVMRU5rZ3UzamRWeVVjbEp1ZXVHTHdkLTJOeWFRbElhdUpPRGxndw==
+
+{"username":"admin888","password":"secret"}
+
+<> 2018-04-20T045248.200.txt
+
+###
+
+POST http://localhost:8888/resource?=
+Authorization: ZXlKaGJHY2lPaUpJVXpJMU5pSXNJblI1Y0NJNklrcFhWQ0o5LmV5SmxlSEJwY21Weklqb3hOVEkwTWpFM05UTTVMQ0pwWVhRaU9qRTFNalF5TVRNNU16bDkuRHpXTEVMRU5rZ3UzamRWeVVjbEp1ZXVHTHdkLTJOeWFRbElhdUpPRGxndw==
+
+{"username":"admin888","password":"secret"}
+
+<> 2018-04-20T044826.200.txt
+
+###
+
+POST http://localhost:8888/resource?=
+Authorization: ZXlKaGJHY2lPaUpJVXpJMU5pSXNJblI1Y0NJNklrcFhWQ0o5LmV5SmxlSEJwY21Weklqb3hOVEkwTWpFM05UTTVMQ0pwWVhRaU9qRTFNalF5TVRNNU16bDkuRHpXTEVMRU5rZ3UzamRWeVVjbEp1ZXVHTHdkLTJOeWFRbElhdUpPRGxndw==
+
+{"username":"admin888","password":"secret"}
+
+<> 2018-04-20T044711-2.404.txt
+
+###
+
+POST http://localhost:8888/resource?=
+Authorization: ZXlKaGJHY2lPaUpJVXpJMU5pSXNJblI1Y0NJNklrcFhWQ0o5LmV5SmxlSEJwY21Weklqb3hOVEkwTWpFM05UTTVMQ0pwWVhRaU9qRTFNalF5TVRNNU16bDkuRHpXTEVMRU5rZ3UzamRWeVVjbEp1ZXVHTHdkLTJOeWFRbElhdUpPRGxndw==
+
+{"username":"admin888","password":"secret"}
+
+<> 2018-04-20T044711-1.404.txt
+
+###
+
+POST http://localhost:8888/resource?=
+Authorization: ZXlKaGJHY2lPaUpJVXpJMU5pSXNJblI1Y0NJNklrcFhWQ0o5LmV5SmxlSEJwY21Weklqb3hOVEkwTWpFM05UTTVMQ0pwWVhRaU9qRTFNalF5TVRNNU16bDkuRHpXTEVMRU5rZ3UzamRWeVVjbEp1ZXVHTHdkLTJOeWFRbElhdUpPRGxndw==
+
+{"username":"admin888","password":"secret"}
+
+<> 2018-04-20T044711.404.txt
+
+###
+
+POST http://localhost:8888/resource?=
+Authorization: ZXlKaGJHY2lPaUpJVXpJMU5pSXNJblI1Y0NJNklrcFhWQ0o5LmV5SmxlSEJwY21Weklqb3hOVEkwTWpFM05UTTVMQ0pwWVhRaU9qRTFNalF5TVRNNU16bDkuRHpXTEVMRU5rZ3UzamRWeVVjbEp1ZXVHTHdkLTJOeWFRbElhdUpPRGxndw==
+
+{"username":"admin888","password":"secret"}
+
+<> 2018-04-20T044710.404.txt
+
+###
+
+POST http://localhost:8888/resource?=
+Authorization: ZXlKaGJHY2lPaUpJVXpJMU5pSXNJblI1Y0NJNklrcFhWQ0o5LmV5SmxlSEJwY21Weklqb3hOVEkwTWpFM05UTTVMQ0pwWVhRaU9qRTFNalF5TVRNNU16bDkuRHpXTEVMRU5rZ3UzamRWeVVjbEp1ZXVHTHdkLTJOeWFRbElhdUpPRGxndw==
+
+{"username":"admin888","password":"secret"}
+
+<> 2018-04-20T044703.404.txt
+
+###
+
+POST http://localhost:8888/resource?=
+Authorization: ZXlKaGJHY2lPaUpJVXpJMU5pSXNJblI1Y0NJNklrcFhWQ0o5LmV5SmxlSEJwY21Weklqb3hOVEkwTWpFM05UTTVMQ0pwWVhRaU9qRTFNalF5TVRNNU16bDkuRHpXTEVMRU5rZ3UzamRWeVVjbEp1ZXVHTHdkLTJOeWFRbElhdUpPRGxndw==
+
+{"username":"admin888","password":"secret"}
+
+<> 2018-04-20T044700.404.txt
+
+###
+
+POST http://localhost:8888/resource?=
+Authorization: ZXlKaGJHY2lPaUpJVXpJMU5pSXNJblI1Y0NJNklrcFhWQ0o5LmV5SmxlSEJwY21Weklqb3hOVEkwTWpFM05UTTVMQ0pwWVhRaU9qRTFNalF5TVRNNU16bDkuRHpXTEVMRU5rZ3UzamRWeVVjbEp1ZXVHTHdkLTJOeWFRbElhdUpPRGxndw==
+
+{"username":"admin888","password":"secret"}
+
+<> 2018-04-20T044658.404.txt
+
+###
+
+POST http://localhost:8888/login
+
+{"username":"admin888","password":"secret"}
+
+<> 2018-04-20T044539.200.txt
+
+###
+
+POST http://localhost:8888/login
+
+{"username":"admin888","password":"secret"}
+
+<> 2018-04-20T044515.401.txt
+
+###
+
+POST http://localhost:8888/login
+
+{"username":"admin888","password":"secret"}
+
+<> 2018-04-20T044513.401.txt
+
+###
+
+POST http://localhost:8888/login
+
+{"username":"admin888","password":"secret"}
+
+<> 2018-04-20T044445.401.txt
+
+###
+
+POST http://localhost:8888/login
+
+{"username":"admin888","password":"secret"}
+
+<> 2018-04-20T044443.401.txt
+
+###
+
+GET http://localhost:8888/login
+
+{"username":"admin888","password":"secret"}
+
+<> 2018-04-20T044439.401.txt
+
+###
+
+GET http://localhost:8888/login
+
+{"username":"admin888","password":"secret"}
+
+<> 2018-04-20T044426-1.401.txt
+
+###
+
+GET http://localhost:8888/login
+
+{"username":"admin888","password":"secret"}
+
+<> 2018-04-20T044426.401.txt
+
+###
+
+GET http://localhost:8888/login
+
+{"username":"admin888","password":"secret"}
+
+<> 2018-04-20T044425-1.401.txt
+
+###
+
+GET http://localhost:8888/login
+
+{"username":"admin888","password":"secret"}
+
+<> 2018-04-20T044425.401.txt
+
+###
+
+GET http://localhost:8888/login
+
+{"username":"admin888","password":"secret"}
+
+<> 2018-04-20T044424.401.txt
+
+###
+
+GET http://localhost:8888/login
+
+{"username":"admin888","password":"secret"}
+
+<> 2018-04-20T044423.401.txt
+
+###
+
+GET http://localhost:8888/login
+
+{"username":"admin888","password":"secret"}
+
+<> 2018-04-20T044421.401.txt
 
 ###
 
