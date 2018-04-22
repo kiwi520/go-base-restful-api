@@ -10,7 +10,8 @@ import (
 	"fmt"
 	"strings"
 	"time"
-	"github.com/codegangsta/negroni"
+	//"github.com/codegangsta/negroni"
+	"restful/authentication"
 )
 
 const SecretKey  = "welcome to wangshubo's blog"
@@ -24,7 +25,7 @@ type Person struct {
 }
 
 type Address struct {
-	Province string `json:",omitemty"`
+	Province string `json:",omitempty"`
 	City string `json:",omitempty"`
 	County string `json:"county,omitempty"`
 }
@@ -99,44 +100,59 @@ func main() {
 
 	router := mux.NewRouter()
 
-	people = append(people,Person{Id:"1",FirstName:"Liu",LastName:"ming",Address:&Address{Province:"shandong",City:"jinan",County:"lixia"}})
-	people = append(people,Person{Id:"2",FirstName:"Li",LastName:"kui",Address:&Address{Province:"shandong",City:"liaocheng",County:"dongchang"}})
+	//people = append(people,Person{Id:"1",FirstName:"Liu",LastName:"ming",Address:&Address{Province:"shandong",City:"jinan",County:"lixia"}})
+	//people = append(people,Person{Id:"2",FirstName:"Li",LastName:"kui",Address:&Address{Province:"shandong",City:"liaocheng",County:"dongchang"}})
 
-	router.HandleFunc("/people",getPeople).Methods("GET")
-	router.HandleFunc("/people/{id}",getPerson).Methods("GET")
-	router.HandleFunc("/people/{id}",postPerson).Methods("POST")
-	router.HandleFunc("/people/{id}",deletePerson).Methods("DELETE")
+	//router.HandleFunc("/people",getPeople).Methods("GET")
+	//router.HandleFunc("/people/{id}",getPerson).Methods("GET")
+	//router.HandleFunc("/people/{id}",postPerson).Methods("POST")
+	//router.HandleFunc("/people/{id}",deletePerson).Methods("DELETE")
 
-	router.HandleFunc("/login",PostLogin).Methods("POST")
-	
-	router.Handle("/resource",
-		negroni.New(
-			negroni.HandlerFunc(func(w http.ResponseWriter, r *http.Request, next http.HandlerFunc) {
+	//router.HandleFunc("/login",PostLogin).Methods("POST")
+	//
+	//router.Handle("/resource",
+	//	negroni.New(
+	//		negroni.HandlerFunc(func(w http.ResponseWriter, r *http.Request, next http.HandlerFunc) {
+	//
+	//			token, err := request.ParseFromRequest(r, request.AuthorizationHeaderExtractor,
+	//				func(token *jwt.Token) (interface{}, error) {
+	//					return []byte(SecretKey), nil
+	//				})
+	//			if err == nil {
+	//				if token.Valid {
+	//					next(w, r)
+	//				} else {
+	//					w.WriteHeader(http.StatusUnauthorized)
+	//					fmt.Fprint(w, "Token is not valid")
+	//				}
+	//			} else {
+	//				//fmt.Println(err.Error())
+	//				w.WriteHeader(http.StatusUnauthorized)
+	//				fmt.Fprint(w, "Unauthorized access to this resource")
+	//			}
+	//		}),
+	//		negroni.Wrap(http.HandlerFunc(ProtectedHandler)),
+	//	))
+	router.HandleFunc("/login",authentication.Login).Methods("POST")
+	router.HandleFunc("/validate",authentication.VailidateToken).Methods("GET")
+	router.Use(simpleMw)
 
-				token, err := request.ParseFromRequest(r, request.AuthorizationHeaderExtractor,
-					func(token *jwt.Token) (interface{}, error) {
-						return []byte(SecretKey), nil
-					})
-fmt.Println(r.Header.Get("Authorization"))
-				if err == nil {
-					if token.Valid {
-						next(w, r)
-					} else {
-						w.WriteHeader(http.StatusUnauthorized)
-						fmt.Fprint(w, "Token is not valid")
-					}
-				} else {
-					//fmt.Println(err.Error())
-					w.WriteHeader(http.StatusUnauthorized)
-					fmt.Fprint(w, "Unauthorized access to this resource")
-				}
-			}),
-			negroni.Wrap(http.HandlerFunc(ProtectedHandler)),
-		))
 	log.Println("Now listening...")
 	if err :=http.ListenAndServe(":8888",router); err !=nil{
 		log.Fatal(err.Error())
 	}
+}
+
+func simpleMw(next http.Handler) http.Handler {
+	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+
+		fmt.Println(r.Body)
+		fmt.Println(r.Header.Get("keep-alive"))
+		// Do stuff here
+		// Call the next handler, which can be another middleware in the chain, or the final handler.
+		w.Header().Set("X-We-Modified-This", "Yup")
+		next.ServeHTTP(w, r)
+	})
 }
 
 func PostLogin(w http.ResponseWriter, r *http.Request)  {
