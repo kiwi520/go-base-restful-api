@@ -98,6 +98,8 @@ func deletePerson(w http.ResponseWriter,r *http.Request)  {
 }
 func main() {
 
+
+
 	router := mux.NewRouter()
 
 	//people = append(people,Person{Id:"1",FirstName:"Liu",LastName:"ming",Address:&Address{Province:"shandong",City:"jinan",County:"lixia"}})
@@ -146,6 +148,7 @@ func main() {
 func simpleMw(next http.Handler) http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 
+		ss()
 		fmt.Println(r.Body)
 		fmt.Println(r.Header.Get("keep-alive"))
 		// Do stuff here
@@ -153,6 +156,10 @@ func simpleMw(next http.Handler) http.Handler {
 		w.Header().Set("X-We-Modified-This", "Yup")
 		next.ServeHTTP(w, r)
 	})
+}
+
+func ss()  {
+	fmt.Println("sssss")
 }
 
 func PostLogin(w http.ResponseWriter, r *http.Request)  {

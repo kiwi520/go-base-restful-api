@@ -4,28 +4,36 @@ import (
 	"crypto/rsa"
 	"io/ioutil"
 	"log"
-	jwt "github.com/dgrijalva/jwt-go"
+	"github.com/dgrijalva/jwt-go"
 	"github.com/dgrijalva/jwt-go/request"
 	"restful/models"
 	"time"
 	"net/http"
-	"encoding/json"
 	"fmt"
-	"strings"
 	"errors"
+	"gopkg.in/mgo.v2"
+	"gopkg.in/mgo.v2/bson"
+	"encoding/json"
+	"golang.org/x/crypto/scrypt"
+	"encoding/hex"
+	"strings"
 )
 
 var privateKey  *rsa.PrivateKey
 var publicKey *rsa.PublicKey
 
+
+
 func init()  {
-	privateBytes ,err := ioutil.ReadFile("./private.rsa")
+	privateBytes ,err := ioutil.ReadFile("./rsa_private_linux.rsa")
+	//privateBytes ,err := ioutil.ReadFile("./private.rsa")
 
 	if err != nil{
 		log.Fatal("读取 私钥 失败")
 	}
 
-	publicBytes ,err := ioutil.ReadFile("./public.rsa.pub")
+	publicBytes ,err := ioutil.ReadFile("./rsa_public_linux.rsa.pub")
+	//publicBytes ,err := ioutil.ReadFile("./public.rsa.pub")
 
 	if err != nil{
 		log.Fatal("读取 公钥 失败")
@@ -48,7 +56,7 @@ func GenerateJWT(user models.User) (string,error){
 	claims := models.Claim{
 		User:user,
 		StandardClaims:jwt.StandardClaims{
-			ExpiresAt: time.Now().Add(time.Minute*1).Unix(),
+			ExpiresAt: time.Now().Add(time.Hour*1).Unix(),
 			Issuer:"User token",
 		},
 	}
@@ -65,15 +73,40 @@ func GenerateJWT(user models.User) (string,error){
 }
 
 func Login(w http.ResponseWriter, r *http.Request){
-	var user models.User
-	err := json.NewDecoder(r.Body).Decode(&user)
 
-	if err != nil{
+
+	Session, err := mgo.Dial("localhost:27017")
+	if err != nil {
+		panic(err.Error())
+	}
+	defer Session.Close()
+	mgUser := Session.DB("test").C("users")
+
+
+	var user models.User
+	errs := json.NewDecoder(r.Body).Decode(&user)
+	//
+	if errs != nil{
 		fmt.Fprint(w,"参数错误")
 		return
 	}
 
-	if strings.ToLower(user.Name) =="admin888" && strings.ToLower(user.Password) =="secret" {
+	result := models.User{}
+	err = mgUser.Find(bson.M{"name": user.Name}).One(&result)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+
+	//把api获取过来的passwd数据进行加密
+	dk,err:= scrypt.Key([]byte(user.Password), []byte("mongodb-golang"), 16384, 8, 1, 32)
+
+	if err != nil {
+		panic(err.Error())
+	}
+
+	userPassword := hex.EncodeToString(dk)
+	if strings.ToLower(user.Name) =="admin888" && result.Password ==userPassword {
 		user.Password =""
 		user.Role ="admin"
 
@@ -90,10 +123,16 @@ func Login(w http.ResponseWriter, r *http.Request){
 			fmt.Fprint(w,"获取token失败")
 			return
 		}
+		if err :=Session.DB("test").C("tokens").Insert(bson.M{"username":user.Name,"token":token}); err == nil{
+			w.WriteHeader(http.StatusOK)
+			w.Header().Set("Content-Type","application/json")
+			w.Write(jsonResult)
+		}else{
+			w.WriteHeader(http.StatusForbidden)
+			w.Write([]byte("token 存取失败"))
+		}
 
-		w.WriteHeader(http.StatusOK)
-		w.Header().Set("Content-Type","application/json")
-		w.Write(jsonResult)
+
 	}else{
 		w.WriteHeader(http.StatusForbidden)
 		fmt.Fprintln(w,"用户名或密码 错误")
@@ -125,6 +164,7 @@ func VailidateToken(w http.ResponseWriter, r *http.Request){
 				return
 			}
 		default:
+			fmt.Println("wqeq")
 			fmt.Fprintln(w,"token 校验错误")
 			return
 		}
